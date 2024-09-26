@@ -1,12 +1,12 @@
 # Ex02 Django ORM Web Application
-## Date: 
+## Date: 26/09/24
 
 ## AIM
 To develop a Django application to store and retrieve data from a Bank database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
+![web ex02-](https://github.com/user-attachments/assets/a8b6ba8d-bb18-41ef-a697-b08c643013b1)
 
-Include your ER diagram here
 
 ## DESIGN STEPS
 
@@ -23,13 +23,31 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 customers.
 
 ## PROGRAM
+ADMIN.PY
+```
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
 
-Include your code here
+admin.site.register(Employee,EmployeeAdmin)
+```
+MODEL.PY
+```
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+
+```
 
 ## OUTPUT
-
-Include the screenshot of your admin page.
-
+![Screenshot 2024-09-26 214454](https://github.com/user-attachments/assets/d98c4371-6372-4edd-a3f0-14a8e3425325)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
